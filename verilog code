@@ -1,0 +1,18 @@
+module car_alarm (input d, k, l, b, dr, i, v, output reg a);
+always @* begin
+ if (k == 1) begin
+                  if (dr == 0 || v == 0)
+                        a = 1;
+                  else begin
+                          case ({d, l, b, i})
+                          4'b0xxx: a = 1;
+4'b10xx: a = 1;
+                          4'b110x: a = 1;
+                          4'b1110: a = 1
+                          default: a = 0; 
+                          endcase
+                          end
+                   end
+  else        a = 0;
+  end
+endmodule
